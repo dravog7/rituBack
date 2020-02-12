@@ -3,5 +3,4 @@ deployment:
     - export DEPLOYPATH=/home/hu3kkt66hnj8/pytesting
     - /bin/cp -r -u . $DEPLOYPATH
     - cd ..
-    - source /home/hu3kkt66hnj8/virtualenv/pytesting/3.6/bin/activate
     - python pytesting/manage.py collectstatic
