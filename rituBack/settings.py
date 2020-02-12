@@ -78,7 +78,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': '/home/hu3kkt66hnj8/etc/ritu20.com/sql.conf',
+            'read_default_file': '/home/hu3kkt66hnj8/pytesting/sql.conf',
         },
     }
 }
