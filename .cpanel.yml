@@ -2,5 +2,6 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/hu3kkt66hnj8/pytesting
     - /bin/cp -r -u . $DEPLOYPATH
-    - cd ..
-    - python pytesting/manage.py collectstatic
+    - /bin/touch a.txt
+    - /bin/cd ..
+    - /bin/touch a.txt
