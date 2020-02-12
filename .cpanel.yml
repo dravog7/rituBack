@@ -2,3 +2,4 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/hu3kkt66hnj8/pytesting
     - /bin/cp -r . $DEPLOYPATH
+    - python --version > $DEPLOPATH/a.txt
