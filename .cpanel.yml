@@ -1,4 +1,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/hu3kkt66hnj8/pytesting
-    - /bin/cp -r -u . $DEPLOYPATH
+    - /bin/cp -r . $DEPLOYPATH
