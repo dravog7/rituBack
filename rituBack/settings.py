@@ -121,5 +121,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
+STATIC_ROOT = '/home/hu3kkt66hnj8/public_html/test.ritu20.com/static'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
