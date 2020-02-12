@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'public.rituBack.urls'
+ROOT_URLCONF = 'rituBack.urls'
 
 TEMPLATES = [
     {
@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'public.rituBack.wsgi.application'
+WSGI_APPLICATION = 'rituBack.wsgi.application'
 
 
 # Database
