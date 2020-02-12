@@ -3,5 +3,3 @@ deployment:
     - export DEPLOYPATH=/home/hu3kkt66hnj8/pytesting
     - /bin/cp -r -u . $DEPLOYPATH
     - /bin/touch a.txt
-    - /bin/cd ..
-    - /bin/touch a.txt
