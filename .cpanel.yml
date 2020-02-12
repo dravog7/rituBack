@@ -2,4 +2,5 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/hu3kkt66hnj8/pytesting
     - /bin/cp -r . $DEPLOYPATH
-    - python --version > $DEPLOPATH/a.txt
+    - /bin/source /home/hu3kkt66hnj8/virtualenv/pytesting/3.6/bin/activate
+    - python $DEPLOYPATH/manage.py collectstatic
