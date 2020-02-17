@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from .models import event
 from django.conf import settings
+from urllib.parse import urljoin
 # Create your views here.
 
 def listing(req):
@@ -16,5 +17,5 @@ def details(req):
 
 def processImage(listi):
     for i in listi:
-        i['image']=f"{settings.MEDIA_URL}{i['image']}"
+        i['image']=urljoin(settings.MEDIA_URL,i['image'])
     return listi
