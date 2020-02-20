@@ -19,3 +19,6 @@ class event(models.Model):
     contacts = models.TextField() #to easily add text. its JSON
     image = models.ImageField()
     dept = models.CharField(choices=DEPTS,max_length=10)
+
+    def __str__(self):
+        return self.name
