@@ -10,16 +10,16 @@ DEPTS = [
     'MCA',
     'ECE',
     'EEE',
-    'Mech',
-    'Civil',
-    'Arch',
-    'General'
+    'MECH',
+    'CIVIL',
+    'ARCH',
+    'GENERAL'
 ]
 def eventList(req):
-    dept = req.GET.get('dept',False)
-    if(dept not in DEPTS):
+    dept = req.GET.get('dept',"")
+    if(dept.upper() not in DEPTS):
         raise Http404()
-    query = processImage(list(event.objects.filter(dept=dept).values(
+    query = processImage(list(event.objects.filter(dept__iexact=dept).values(
         'name',
         'description',
         'reglink',
@@ -32,10 +32,10 @@ def eventList(req):
     return JsonResponse({'head':head,'body':query},safe=False)
     
 def workshopList(req):
-    dept = req.GET.get('dept',False)
-    if(dept not in DEPTS):
+    dept = req.GET.get('dept',"")
+    if(dept.upper() not in DEPTS):
         raise Http404()
-    query = processImage(list(workshop.objects.filter(dept=dept).values(
+    query = processImage(list(workshop.objects.filter(dept__iexact=dept).values(
         'name',
         'description',
         'reglink',
