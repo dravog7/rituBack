@@ -3,6 +3,7 @@ from django.http import JsonResponse,Http404
 from .models import event,workshop
 from django.conf import settings
 from urllib.parse import urljoin
+from django.views.decorators.csrf import csrf_exempt
 import json
 # Create your views here.
 DEPTS = [
@@ -17,6 +18,7 @@ DEPTS = [
     'TH',
     'BTC',
 ]
+@csrf_exempt
 def eventList(req):
     dept = req.GET.get('dept',"")
     if(dept.upper() not in DEPTS):
@@ -36,7 +38,8 @@ def eventList(req):
         )))
     head = [{'name': x['name'],'image': x['image']} for x in query]
     return JsonResponse({'head':head,'body':query},safe=False)
-    
+
+@csrf_exempt
 def workshopList(req):
     dept = req.GET.get('dept',"")
     if(dept.upper() not in DEPTS):
