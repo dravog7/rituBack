@@ -18,7 +18,7 @@ class event(models.Model):
     reglink = models.URLField(default='http://www.google.co.in')
     prize = models.IntegerField()
     contacts = models.TextField(default="{}") #to easily add text. its JSON
-    image = models.ImageField()
+    image = models.FileField()
     dept = models.CharField(choices=DEPTS,max_length=10)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     rules = models.TextField(default="{}")
@@ -31,7 +31,7 @@ class workshop(models.Model):
     reglink = models.URLField(default='http://www.google.co.in')
     fees = models.IntegerField()
     contacts = models.TextField(default="{}")
-    image = models.ImageField()
+    image = models.FileField()
     dept = models.CharField(choices=DEPTS,max_length=10)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
