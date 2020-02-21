@@ -7,10 +7,15 @@ class eventAdmin(admin.ModelAdmin):
         'description',
         'reglink',
         'prize',
+        'fees',
         'contacts',
         'image',
         'rules',
-        'dept']
+        'dept',
+        'date',
+        'time',
+        'online',
+    ]
     def save_model(self,request,obj,form,change):
         obj.user = request.user
         super(eventAdmin,self).save_model(request,obj,form,change)
@@ -31,6 +36,8 @@ class workshopAdmin(admin.ModelAdmin):
         'contacts',
         'image',
         'dept',
+        'date',
+        'time',
     ]
     def save_model(self,request,obj,form,change):
         obj.user = request.user

@@ -24,9 +24,13 @@ def eventList(req):
         'description',
         'reglink',
         'prize',
+        'fees',
         'contacts',
         'image',
-        'rules'
+        'rules',
+        'date',
+        'time',
+        'online'
         )))
     head = [{'name': x['name'],'image': x['image']} for x in query]
     return JsonResponse({'head':head,'body':query},safe=False)
@@ -42,6 +46,8 @@ def workshopList(req):
         'fees',
         'contacts',
         'image',
+        'date',
+        'time'
         )))
     head = [{'name': x['name'],'image': x['image']} for x in query]
     return JsonResponse({'head':head,'body':query},safe=False)
