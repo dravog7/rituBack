@@ -10,11 +10,14 @@ DEPTS = [
     ('Civil','Civil'),
     ('Arch','Arch'),
     ('General','General'),
+    ('TH','Tinkerhub'),
+    ('BTC','Bootcamp')
 ]
-filedefault=''
-descdefault=''
-namedefault=''
-
+filedefault='https://testhttp1234.blob.core.windows.net/media/about-ritu_ft9zmHG.jpg'
+descdefault=""
+namedefault='1Min ShortFilm'
+contactdefault='[{"name":"Sahil","mob":7012149418}]'
+ruledefault="[]"
 class event(models.Model):
 
     name = models.CharField(max_length=300,default=namedefault)
@@ -22,11 +25,11 @@ class event(models.Model):
     reglink = models.CharField(max_length=200,default='http://www.google.co.in')
     prize = models.IntegerField(default=0)
     fees = models.IntegerField(default=0)
-    contacts = models.TextField(default="{}") #to easily add text. its JSON
+    contacts = models.TextField(default=contactdefault) #to easily add text. its JSON
     image = models.FileField(default=filedefault)
     dept = models.CharField(choices=DEPTS,max_length=10,default='CSE')
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    rules = models.TextField(default="{}")
+    rules = models.TextField(default=ruledefault)
     date = models.CharField(max_length=300,default="")
     time = models.CharField(max_length=300,default="")
     online = models.BooleanField(default=False)
@@ -38,7 +41,7 @@ class workshop(models.Model):
     description = models.TextField(default=descdefault)
     reglink = models.CharField(max_length=200,default='http://www.google.co.in')
     fees = models.IntegerField(default=0)
-    contacts = models.TextField(default="{}")
+    contacts = models.TextField(default=contactdefault)
     image = models.FileField(default=filedefault)
     dept = models.CharField(choices=DEPTS,max_length=10)
     user = models.ForeignKey(User,on_delete=models.CASCADE)

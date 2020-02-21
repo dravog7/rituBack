@@ -13,7 +13,9 @@ DEPTS = [
     'MECH',
     'CIVIL',
     'ARCH',
-    'GENERAL'
+    'GENERAL',
+    'TH',
+    'BTC',
 ]
 def eventList(req):
     dept = req.GET.get('dept',"")
