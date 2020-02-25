@@ -10,13 +10,11 @@ DEPTS = [
     ('Civil','Civil'),
     ('Arch','Arch'),
     ('General','General'),
-    ('TH','Tinkerhub'),
-    ('BTC','Bootcamp')
 ]
 filedefault='https://testhttp1234.blob.core.windows.net/media/about-ritu_ft9zmHG.jpg'
 descdefault=""
-namedefault='1Min ShortFilm'
-contactdefault='[{"name":"Sahil","mob":7012149418}]'
+namedefault=""
+contactdefault='[{"name":"name","mob":0}]'
 ruledefault="[]"
 class event(models.Model):
 
@@ -27,7 +25,7 @@ class event(models.Model):
     fees = models.IntegerField(default=0)
     contacts = models.TextField(default=contactdefault) #to easily add text. its JSON
     image = models.FileField(default=filedefault)
-    dept = models.CharField(choices=DEPTS,max_length=10,default='CSE')
+    dept = models.CharField(choices=DEPTS,max_length=10,default='General')
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     rules = models.TextField(default=ruledefault)
     date = models.CharField(max_length=300,default="")
