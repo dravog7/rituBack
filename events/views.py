@@ -34,7 +34,8 @@ def eventList(req):
         'rules',
         'date',
         'time',
-        'online'
+        'online',
+        'preevent',
         )))
     head = [{'name': x['name'],'image': x['image']} for x in query]
     return JsonResponse({'head':head,'body':query},safe=False)
