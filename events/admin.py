@@ -25,20 +25,7 @@ def process_contacts(txt):
 
 @admin.register(event)
 class eventAdmin(admin.ModelAdmin):
-    fields = ['name',
-        'description',
-        'reglink',
-        'prize',
-        'fees',
-        'contacts',
-        'image',
-        'rules',
-        'dept',
-        'date',
-        'time',
-        'online',
-        'preevent',
-    ]
+    exclude = ['user']
     def save_model(self,request,obj,form,change):
         obj.user = request.user
         obj.rules = process_rules(obj.rules)
@@ -53,17 +40,7 @@ class eventAdmin(admin.ModelAdmin):
 
 @admin.register(workshop)
 class workshopAdmin(admin.ModelAdmin):
-    fields = [
-        'name',
-        'description',
-        'reglink',
-        'fees',
-        'contacts',
-        'image',
-        'dept',
-        'date',
-        'time',
-    ]
+    exclude = ['user']
     def save_model(self,request,obj,form,change):
         obj.user = request.user
         obj.contacts = process_contacts(obj.contacts)

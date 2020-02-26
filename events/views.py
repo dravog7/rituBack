@@ -36,6 +36,8 @@ def eventList(req):
         'time',
         'online',
         'preevent',
+        'seats',
+        'available',
         )))
     head = [{'name': x['name'],'image': x['image']} for x in query]
     return JsonResponse({'head':head,'body':query},safe=False)
@@ -53,7 +55,9 @@ def workshopList(req):
         'contacts',
         'image',
         'date',
-        'time'
+        'time',
+        'seats',
+        'available'
         )))
     head = [{'name': x['name'],'image': x['image']} for x in query]
     return JsonResponse({'head':head,'body':query},safe=False)

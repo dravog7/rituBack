@@ -32,6 +32,8 @@ class event(models.Model):
     time = models.CharField(max_length=300,default="")
     online = models.BooleanField(default=False)
     preevent = models.BooleanField(default=False)
+    seats = models.IntegerField(default=-1)
+    available = models.IntegerField(default=-1)
     def __str__(self):
         return self.name
 
@@ -46,5 +48,7 @@ class workshop(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     date = models.CharField(max_length=300,default="")
     time = models.CharField(max_length=300,default="")
+    seats = models.IntegerField(default=-1)
+    available = models.IntegerField(default=-1)
     def __str__(self):
         return self.name
