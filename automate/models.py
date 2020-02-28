@@ -5,4 +5,4 @@ class Image(models.Model):
     image = models.FileField(blank=True,null=True)
 
     def __str__(self):
-        return self.image
+        return self.image.__str__()
