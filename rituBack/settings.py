@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'storages',
     'events',
+    'automate',
 ]
 
 MIDDLEWARE = [
