@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from automate.models import Image
 # Create your models here.
 DEPTS = [
     ('CSE','CSE'),
@@ -24,7 +25,8 @@ class event(models.Model):
     prize = models.IntegerField(default=0)
     fees = models.IntegerField(default=0)
     contacts = models.TextField(default=contactdefault) #to easily add text. its JSON
-    image = models.FileField(default=filedefault)
+    image = models.FileField(blank=True,null=True)
+    ImageFrom = models.ForeignKey(Image,blank=True,null=True,on_delete=models.CASCADE)
     dept = models.CharField(choices=DEPTS,max_length=10,default='General')
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     rules = models.TextField(default=ruledefault)
@@ -43,7 +45,8 @@ class workshop(models.Model):
     reglink = models.CharField(max_length=200,default='http://www.google.co.in')
     fees = models.IntegerField(default=0)
     contacts = models.TextField(default=contactdefault)
-    image = models.FileField(default=filedefault)
+    image = models.FileField(blank=True,null=True)
+    ImageFrom = models.ForeignKey(Image,blank=True,null=True,on_delete=models.CASCADE)
     dept = models.CharField(choices=DEPTS,max_length=10)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     date = models.CharField(max_length=300,default="")

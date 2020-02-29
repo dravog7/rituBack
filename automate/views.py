@@ -7,6 +7,11 @@ from PIL import Image
 # Create your views here.
 size = 360,500
 def thumbnail(file):
+    #check if file is svg and skip
+    name=file._name
+    if(name.find(".svg")!=-1):
+        return file
+
     img = Image.open(file)
 
     img.thumbnail(size)
@@ -23,11 +28,8 @@ def addImage(req):
     try:
         req.FILES['image']=thumbnail(req.FILES['file'])
     except:
-        pass
-    try:
         req.FILES['image']=thumbnail(req.FILES['image'])
-    except:
-        pass
+            
     instance = ImageForm(req.POST,req.FILES)
     instance.save()
     return HttpResponse('1')

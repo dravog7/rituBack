@@ -64,8 +64,25 @@ def workshopList(req):
 
 def processImage(listi):
     for i in listi:
-        i['image']=urljoin(settings.MEDIA_URL,i['image'])
-        i['contacts']=json.loads(i['contacts'])
+        i['image'] = urljoin(settings.MEDIA_URL,i['image'])
+
+        i['contacts'] = json.loads(i['contacts'])
+
         if(i.get('rules',False)):
-            i['rules']=json.loads(i['rules'])
+            i['rules'] = json.loads(i['rules'])
+
+        i['fees'] = formatNumber(i['fees'])
+
+        if(i.get('prize',False)):
+            i['prize'] = formatNumber(i['prize'])
+
     return listi
+
+def formatNumber(num):
+    if(num>=1000):
+        if(num%1000==0):
+            return f"{num//1000}K"
+        else:
+            return f"{num/1000}K"
+    else:
+        return f"{num}"

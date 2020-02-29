@@ -27,6 +27,9 @@ def process_contacts(txt):
 class eventAdmin(admin.ModelAdmin):
     exclude = ['user']
     def save_model(self,request,obj,form,change):
+        #check image,if null. set as ImageFrom
+        if(not obj.image):
+            obj.image=obj.ImageFrom.image
         obj.user = request.user
         obj.rules = process_rules(obj.rules)
         obj.contacts = process_contacts(obj.contacts)
@@ -42,6 +45,9 @@ class eventAdmin(admin.ModelAdmin):
 class workshopAdmin(admin.ModelAdmin):
     exclude = ['user']
     def save_model(self,request,obj,form,change):
+        #check image,if null. set as ImageFrom
+        if(not obj.image):
+            obj.image=obj.ImageFrom.image
         obj.user = request.user
         obj.contacts = process_contacts(obj.contacts)
         super(workshopAdmin,self).save_model(request,obj,form,change)
