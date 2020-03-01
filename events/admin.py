@@ -39,9 +39,12 @@ def translate_contacts(txt):
         return "\n".join(arr)
     except:
         return txt
+
+
 @admin.register(event)
 class eventAdmin(admin.ModelAdmin):
     exclude = ['user']
+    list_display = ('name', 'dept','date')
     def save_model(self,request,obj,form,change):
         #check image,if null. set as ImageFrom
         if((not obj.image)and(obj.ImageFrom)):
@@ -66,6 +69,7 @@ class eventAdmin(admin.ModelAdmin):
 @admin.register(workshop)
 class workshopAdmin(admin.ModelAdmin):
     exclude = ['user']
+    list_display = ('name', 'dept','date')
     def save_model(self,request,obj,form,change):
         #check image,if null. set as ImageFrom
         if((not obj.image)and(obj.ImageFrom)):
