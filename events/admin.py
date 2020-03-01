@@ -44,7 +44,7 @@ class eventAdmin(admin.ModelAdmin):
     exclude = ['user']
     def save_model(self,request,obj,form,change):
         #check image,if null. set as ImageFrom
-        if(not obj.image):
+        if((not obj.image)and(obj.ImageFrom)):
             obj.image=obj.ImageFrom.image
         obj.user = request.user
         obj.rules = process_rules(obj.rules)
@@ -68,7 +68,7 @@ class workshopAdmin(admin.ModelAdmin):
     exclude = ['user']
     def save_model(self,request,obj,form,change):
         #check image,if null. set as ImageFrom
-        if(not obj.image):
+        if((not obj.image)and(obj.ImageFrom)):
             obj.image=obj.ImageFrom.image
         obj.user = request.user
         obj.contacts = process_contacts(obj.contacts)
