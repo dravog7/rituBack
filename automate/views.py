@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .forms import ImageForm
 from io import BytesIO
 from PIL import Image
+from os.path import splitext
 # Create your views here.
 size = 360,500
 def thumbnail(file):
@@ -14,14 +15,22 @@ def thumbnail(file):
 
     img = Image.open(file)
 
-    img=img.convert("RGB")
+    
     img.thumbnail(size)
 
+    #save as jpg
+    img=img.convert("RGB")
     files=BytesIO()
     img.save(files,"jpeg")
     file.size=files.tell()
     file.file=files
     file.seek(0)
+
+    #change name to .jpg
+    fullname = file._get_name()
+    name,ext = splitext(fullname)
+    ext = ".jpg"
+    file._set_name("".join([name,ext])) 
     return file
 
 @csrf_exempt
