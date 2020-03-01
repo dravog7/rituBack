@@ -14,6 +14,7 @@ def thumbnail(file):
 
     img = Image.open(file)
 
+    img=img.convert("RGB")
     img.thumbnail(size)
 
     files=BytesIO()
