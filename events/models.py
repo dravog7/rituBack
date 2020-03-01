@@ -15,8 +15,8 @@ DEPTS = [
 filedefault='https://testhttp1234.blob.core.windows.net/media/about-ritu_ft9zmHG.jpg'
 descdefault=""
 namedefault=""
-contactdefault='[{"name":"name","mob":0}]'
-ruledefault="[]"
+contactdefault='name:0'
+ruledefault=""
 class event(models.Model):
 
     name = models.CharField(max_length=300,default=namedefault)
@@ -30,12 +30,12 @@ class event(models.Model):
     dept = models.CharField(choices=DEPTS,max_length=10,default='General')
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     rules = models.TextField(default=ruledefault)
-    date = models.CharField(max_length=300,default="")
-    time = models.CharField(max_length=300,default="")
+    date = models.CharField(max_length=300,default="",blank=True,null=True)
+    time = models.CharField(max_length=300,default="",blank=True,null=True)
     online = models.BooleanField(default=False)
     preevent = models.BooleanField(default=False)
-    seats = models.IntegerField(default=-1)
-    available = models.IntegerField(default=-1)
+    seats = models.IntegerField(default=1)
+    available = models.IntegerField(default=1)
     def __str__(self):
         return self.name
 
@@ -49,9 +49,9 @@ class workshop(models.Model):
     ImageFrom = models.ForeignKey(Image,blank=True,null=True,on_delete=models.CASCADE)
     dept = models.CharField(choices=DEPTS,max_length=10)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    date = models.CharField(max_length=300,default="")
-    time = models.CharField(max_length=300,default="")
-    seats = models.IntegerField(default=-1)
-    available = models.IntegerField(default=-1)
+    date = models.CharField(max_length=300,default="",blank=True,null=True)
+    time = models.CharField(max_length=300,default="",blank=True,null=True)
+    seats = models.IntegerField(default=1)
+    available = models.IntegerField(default=1)
     def __str__(self):
         return self.name
