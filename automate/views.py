@@ -25,10 +25,8 @@ def thumbnail(file):
 
 @csrf_exempt
 def addImage(req):
-    try:
-        req.FILES['image']=thumbnail(req.FILES['file'])
-    except:
-        req.FILES['image']=thumbnail(req.FILES['image'])
+    image = list(req.FILES.values())[0]
+    req.FILES['image']=thumbnail(image)
             
     instance = ImageForm(req.POST,req.FILES)
     instance.save()
