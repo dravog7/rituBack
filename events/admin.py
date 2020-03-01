@@ -23,6 +23,22 @@ def process_contacts(txt):
             obj.append({"name":b[0].strip(),"mob":b[1].strip()})
         return json.dumps(obj)
 
+def translate_rules(txt):
+    try:
+        obj = json.loads(txt)
+        return "\n".join(obj)
+    except:
+        return txt
+
+def translate_contacts(txt):
+    try:
+        obj = json.loads(txt)
+        arr = []
+        for i in obj:
+            arr.append(f"{i['name']}:{i['mob']}")
+        return "\n".join(arr)
+    except:
+        return txt
 @admin.register(event)
 class eventAdmin(admin.ModelAdmin):
     exclude = ['user']
@@ -40,6 +56,12 @@ class eventAdmin(admin.ModelAdmin):
         if request.user.is_superuser:
             return qs
         return qs.filter(user = request.user)
+    
+    def get_object(self, request, object_id,from_field=None):
+        obj = super(eventAdmin, self).get_object(request, object_id,from_field=from_field)
+        obj.rules = translate_rules(obj.rules)
+        obj.contacts = translate_contacts(obj.contacts)
+        return obj
 
 @admin.register(workshop)
 class workshopAdmin(admin.ModelAdmin):
@@ -57,3 +79,8 @@ class workshopAdmin(admin.ModelAdmin):
         if request.user.is_superuser:
             return qs
         return qs.filter(user = request.user)
+    
+    def get_object(self, request, object_id,from_field=None):
+        obj = super(workshopAdmin, self).get_object(request, object_id,from_field=from_field)
+
+        return obj
