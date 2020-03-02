@@ -13,7 +13,7 @@ DEPTS = [
     'EEE',
     'MECH',
     'CIVIL',
-    'ARCH',
+    'B.ARCH',
     'GENERAL',
     'TH',
     'BTC',

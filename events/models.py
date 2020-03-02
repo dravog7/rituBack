@@ -9,7 +9,7 @@ DEPTS = [
     ('EEE','EEE'),
     ('Mech','Mech'),
     ('Civil','Civil'),
-    ('Arch','Arch'),
+    ('B.Arch','B.Arch'),
     ('General','General'),
 ]
 filedefault='https://testhttp1234.blob.core.windows.net/media/about-ritu_ft9zmHG.jpg'
