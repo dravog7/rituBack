@@ -23,7 +23,7 @@ class event(models.Model):
     description = models.TextField(default=descdefault)
     reglink = models.CharField(max_length=200,default='https://ritu20.com/')
     prize = models.IntegerField(default=0)
-    fees = models.IntegerField(default=0)
+    fees = models.CharField(default=0,max_length=200,blank=True,null=True)
     contacts = models.TextField(default=contactdefault) #to easily add text. its JSON
     image = models.FileField(blank=True,null=True)
     ImageFrom = models.ForeignKey(Image,blank=True,null=True,on_delete=models.CASCADE)
@@ -43,7 +43,7 @@ class workshop(models.Model):
     name = models.CharField(max_length=300,default=namedefault)
     description = models.TextField(default=descdefault)
     reglink = models.CharField(max_length=200,default='https://ritu20.com/')
-    fees = models.IntegerField(default=0)
+    fees = models.CharField(default=0,max_length=200,blank=True,null=True)
     contacts = models.TextField(default=contactdefault)
     image = models.FileField(blank=True,null=True)
     ImageFrom = models.ForeignKey(Image,blank=True,null=True,on_delete=models.CASCADE)

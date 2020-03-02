@@ -71,8 +71,6 @@ def processImage(listi):
         if(i.get('rules',False)):
             i['rules'] = json.loads(i['rules'])
 
-        i['fees'] = formatNumber(i['fees'])
-
         if(i.get('prize',False)):
             i['prize'] = formatNumber(i['prize'])
 
