@@ -23,7 +23,7 @@ def eventList(req):
     dept = req.GET.get('dept',"")
     if(dept.upper() not in DEPTS):
         raise Http404()
-    query = processImage(list(event.objects.filter(dept__iexact=dept).values(
+    query = processImage(list(event.objects.filter(dept__iexact=dept).order_by('-preevent').values(
         'name',
         'description',
         'reglink',
