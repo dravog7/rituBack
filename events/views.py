@@ -23,7 +23,7 @@ def eventList(req):
     dept = req.GET.get('dept',"")
     if(dept.upper() not in DEPTS):
         raise Http404()
-    query = processImage(list(event.objects.filter(dept__iexact=dept).order_by('-preevent').values(
+    query = processImage(list(event.objects.filter(dept__iexact=dept).order_by('category').values(
         'name',
         'description',
         'reglink',
@@ -38,6 +38,7 @@ def eventList(req):
         'preevent',
         'seats',
         'available',
+        'category',
         )))
     head = [{'name': x['name'],'image': x['image']} for x in query]
     return JsonResponse({'head':head,'body':query},safe=False)

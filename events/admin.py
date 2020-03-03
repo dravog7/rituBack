@@ -49,6 +49,7 @@ class eventAdmin(admin.ModelAdmin):
         #check image,if null. set as ImageFrom
         if((not obj.image)and(obj.ImageFrom)):
             obj.image=obj.ImageFrom.image
+            obj.ImageFrom = None
         obj.user = request.user
         obj.rules = process_rules(obj.rules)
         obj.contacts = process_contacts(obj.contacts)

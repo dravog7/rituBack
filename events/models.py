@@ -36,6 +36,7 @@ class event(models.Model):
     preevent = models.BooleanField(default=False)
     seats = models.IntegerField(default=1)
     available = models.IntegerField(default=1)
+    category = models.CharField(blank=True,null=True,max_length=200)
     def __str__(self):
         return self.name
 
