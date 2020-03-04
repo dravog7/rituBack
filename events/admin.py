@@ -44,7 +44,7 @@ def translate_contacts(txt):
 @admin.register(event)
 class eventAdmin(admin.ModelAdmin):
     exclude = ['user']
-    list_display = ('name', 'dept','date')
+    list_display = ('name', 'dept','date','category')
     def save_model(self,request,obj,form,change):
         #check image,if null. set as ImageFrom
         if((not obj.image)and(obj.ImageFrom)):

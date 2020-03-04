@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from automate.models import Image
-from datetime import datetime
+from django.utils import timezone
 # Create your models here.
 DEPTS = [
     ('CSE','CSE'),
@@ -38,7 +38,14 @@ class event(models.Model):
     seats = models.IntegerField(default=1)
     available = models.IntegerField(default=1)
     category = models.CharField(blank=True,null=True,max_length=200)
-    createDate = models.DateTimeField(auto_now_add=True)
+    createDate = models.DateTimeField()
+
+    def save(self, *args, **kwargs):
+        ''' On save, update timestamps '''
+        if not self.id:
+            self.createDate = timezone.now()
+        return super(event, self).save(*args, **kwargs)
+    
     def __str__(self):
         return self.name
 
@@ -56,6 +63,13 @@ class workshop(models.Model):
     time = models.CharField(max_length=300,blank=True,null=True)
     seats = models.IntegerField(default=1)
     available = models.IntegerField(default=1)
-    createDate = models.DateTimeField(auto_now_add=True)
+    createDate = models.DateTimeField()
+
+    def save(self, *args, **kwargs):
+        ''' On save, update timestamps '''
+        if not self.id:
+            self.createDate = timezone.now()
+        return super(workshop, self).save(*args, **kwargs)
+
     def __str__(self):
         return self.name
