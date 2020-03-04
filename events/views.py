@@ -23,7 +23,7 @@ def eventList(req):
     dept = req.GET.get('dept',"")
     if(dept.upper() not in DEPTS):
         raise Http404()
-    query = processImage(list(event.objects.filter(dept__iexact=dept).order_by('category').values(
+    query = processImage(list(event.objects.filter(dept__iexact=dept).order_by('createDate').values(
         'name',
         'description',
         'reglink',
@@ -48,7 +48,7 @@ def workshopList(req):
     dept = req.GET.get('dept',"")
     if(dept.upper() not in DEPTS):
         raise Http404()
-    query = processImage(list(workshop.objects.filter(dept__iexact=dept).values(
+    query = processImage(list(workshop.objects.filter(dept__iexact=dept).order_by('createDate').values(
         'name',
         'description',
         'reglink',
