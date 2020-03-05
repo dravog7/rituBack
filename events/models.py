@@ -16,7 +16,7 @@ DEPTS = [
 Category = [
     ('Pre-Event','Pre-Event'),
     ('Gaming','Gaming'),
-    ('Music and Dance','Music and Dance'),
+    ('M.A.D','M.A.D'),
     ('Club','Club'),
     ('Misc','Misc'),
 ]
