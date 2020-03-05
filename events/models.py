@@ -13,6 +13,13 @@ DEPTS = [
     ('B.Arch','B.Arch'),
     ('General','General'),
 ]
+Category = [
+    ('Pre-Event','Pre-Event'),
+    ('Gaming','Gaming'),
+    ('Music and Dance','Music and Dance'),
+    ('Club','Club'),
+    ('Misc','Misc'),
+]
 filedefault='https://testhttp1234.blob.core.windows.net/media/about-ritu_ft9zmHG.jpg'
 descdefault=""
 namedefault=""
@@ -37,7 +44,7 @@ class event(models.Model):
     preevent = models.BooleanField(default=False)
     seats = models.IntegerField(default=1)
     available = models.IntegerField(default=1)
-    category = models.CharField(blank=True,null=True,max_length=200)
+    category = models.CharField(blank=True,null=True,max_length=200,default="Misc",choices=Category)
     createDate = models.DateTimeField()
 
     def save(self, *args, **kwargs):

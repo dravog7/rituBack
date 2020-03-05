@@ -23,7 +23,7 @@ def eventList(req):
     dept = req.GET.get('dept',"")
     if(dept.upper() not in DEPTS):
         raise Http404()
-    query = processImage(list(event.objects.filter(dept__iexact=dept).order_by('createDate','name').values(
+    query = processImage(list(event.objects.filter(dept__iexact=dept).order_by('id').values(
         'name',
         'description',
         'reglink',
@@ -40,7 +40,7 @@ def eventList(req):
         'available',
         'category',
         )))
-    head = [{'name': x['name'],'image': x['image']} for x in query]
+    head = [{'name': x['name'],'image': x['image'],'category':x['category']} for x in query]
     return JsonResponse({'head':head,'body':query},safe=False)
 
 @csrf_exempt
@@ -48,7 +48,7 @@ def workshopList(req):
     dept = req.GET.get('dept',"")
     if(dept.upper() not in DEPTS):
         raise Http404()
-    query = processImage(list(workshop.objects.filter(dept__iexact=dept).order_by('createDate','name').values(
+    query = processImage(list(workshop.objects.filter(dept__iexact=dept).order_by('id').values(
         'name',
         'description',
         'reglink',
