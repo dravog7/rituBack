@@ -40,8 +40,9 @@ def eventList(req):
         'available',
         'category',
         )))
+    category = list(set([x['category'] for x in query]))
     head = [{'name': x['name'],'image': x['image'],'category':x['category']} for x in query]
-    return JsonResponse({'head':head,'body':query},safe=False)
+    return JsonResponse({'head':head,'category':category,'body':query},safe=False)
 
 @csrf_exempt
 def workshopList(req):
