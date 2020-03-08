@@ -87,5 +87,5 @@ class workshopAdmin(admin.ModelAdmin):
     
     def get_object(self, request, object_id,from_field=None):
         obj = super(workshopAdmin, self).get_object(request, object_id,from_field=from_field)
-
+        obj.contacts = translate_contacts(obj.contacts)
         return obj
