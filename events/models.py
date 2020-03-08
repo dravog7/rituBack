@@ -14,13 +14,13 @@ DEPTS = [
     ('General','General'),
 ]
 Category = [
-    ('Pre-Event','Pre-Event'),
-    ('Gaming','Gaming'),
+    ('PRE-EVENT','PRE-EVENT'),
+    ('GAMING','GAMING'),
     ('M.A.D','M.A.D'),
-    ('Club','Club'),
-    ('Misc','Misc'),
-    ('Tech','Tech'),
-    ('Non-Tech','Non-Tech')
+    ('CLUB','CLUB'),
+    ('MISC','MISC'),
+    ('TECH','TECH'),
+    ('NON-TECH','NON-TECH')
 ]
 filedefault='https://testhttp1234.blob.core.windows.net/media/about-ritu_ft9zmHG.jpg'
 descdefault=""
