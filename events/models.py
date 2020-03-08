@@ -19,6 +19,8 @@ Category = [
     ('M.A.D','M.A.D'),
     ('Club','Club'),
     ('Misc','Misc'),
+    ('Tech','Tech'),
+    ('Non-Tech','Non-Tech')
 ]
 filedefault='https://testhttp1234.blob.core.windows.net/media/about-ritu_ft9zmHG.jpg'
 descdefault=""
