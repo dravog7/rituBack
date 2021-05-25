@@ -58,3 +58,14 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Sidhin''s VSO(165ee4cd-dc8b-483a-b4ce-c32a0e04241e)'
+    appType: 'webAppLinux'
+    appName: 'ritu20'
+    deployToSlotOrASE: true
+    resourceGroupName: 'RITU'
+    slotName: 'production'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    runtimeStack: 'PYTHON|3.8'
+    startUpCommand: 'gunicorn rituBack.wsgi --log-file -'
