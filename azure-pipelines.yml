@@ -66,6 +66,6 @@ steps:
     deployToSlotOrASE: true
     resourceGroupName: 'RITU'
     slotName: 'production'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    package: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     runtimeStack: 'PYTHON|3.8'
     startUpCommand: 'gunicorn rituBack.wsgi --log-file -'
